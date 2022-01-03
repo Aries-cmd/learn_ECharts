@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../echars.js"></script>
+  </head>
+  <body>
+    <div
+      id="box"
+      style="width: 700px; height: 600px; margin: 0 auto; margin-top: 300px"
+    ></div>
+
+    <script>
+      var myCharts = echarts.init(document.getElementById("box"));
+
+      var option = {
+        title: {
+          text: "期末语文成绩表",
+          textStyle: {
+            color: "red",
+          },
+        },
+        tooltip: {},
+        legend: {
+          data: ["成绩表"],
+        },
+        xAxis: {},
+        yAxis: {  // 横向柱状图
+          data: ["张三", "李四", "王五", "闰土", "小明", "小红", "大强"],
+        },
+        series: [
+          {
+            name: "成绩表",
+            type: "bar",
+            data: [86, 45, 35, 98, 86, 75, 88],
+            markPoint: {  // 显示最大值和最小值
+              data: [
+                {
+                  type: "max",
+                  name: "最大值",
+                },
+                {
+                  type: "min",
+                  name: "最小值",
+                },
+              ],
+            },
+            markLine: {  // 平均值
+              data: [
+                {
+                  type: "average", name: "平均值"
+                }
+              ]
+            },
+            label: { // 数值的操作
+              show: true,  // 在柱形中显示 y轴 对应的值
+              rotate: 60,  // 逆时针旋转 60 度
+              position: "right"  // 值显示的位置
+            },
+            barWidth: "60px",  // 柱形的宽度
+          },
+        ],
+      };
+
+      myCharts.setOption(option);
+    </script>
+  </body>
+</html>

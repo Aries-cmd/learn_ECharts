@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 步骤一：引入 echarts 库 -->
+  <script src="../echars.js"></script>
+</head>
+<body>
+  <!-- 步骤二：准备一个呈现图表的盒子 -->
+  <div id="app" style="width: 1000px;height: 400px;margin: 0 auto;margin-top: 200px;"></div>
+
+  <script>
+    // 步骤三：初始化 echarts 实例
+    //    参数：dom，决定图表最终呈现的位置
+    var myCharts = echarts.init(document.getElementById("app"))
+
+    // 步骤四：准备配置项
+    // 指定图表的配置项和数据
+    var option = {
+      title: {
+        text: "echarts 入门实例"
+      },
+      tooltip: {},
+      legend: {
+        data: ['专辑销量']
+      },
+      xAxis: {
+        data: ["叶惠美", "魔杰座", "七里香", "十一月的肖邦", "依然范特西", "周杰伦的床边故事"]
+      },
+      yAxis: {},
+      series: [
+        {
+          name: "专辑销量",
+          type: "pie",
+          data: [3500,6422, 5289,9500,7800, 8456]
+        }
+      ]
+    }
+
+    // 步骤五：将配置项设置给 echarts 实例
+    myCharts.setOption(option)
+  </script>
+</body>
+</html>

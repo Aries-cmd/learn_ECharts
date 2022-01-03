@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../echars.js"></script>
+</head>
+<body>
+  <div id="box" style="width: 1000px; height: 600px; margin: 0 auto; margin-top: 200px;"></div>
+
+  <script>
+    var myCharts = echarts.init(document.getElementById("box"))
+
+    var config = {
+      title: {
+        text: "2021康师傅方便面全年销量"
+      },
+      tooltip: {
+        trigger: "axis"
+      },
+      toolbox: {
+        saveAsImage: {}
+      },
+      legend: {
+        data: ["康师傅方便面"]
+      },
+      xAxis: {
+        data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+      },
+      yAxis: {},
+      series: [
+        {
+          name: "康师傅方便面",
+          type: "line",
+          data: [52003, 32412, 85644, 65802, 45135, 98214, 65823, 12534, 85400, 96500, 47223, 81223],
+          markPoint: {
+            data: [
+              {
+                type: "max",
+                name: "最大值"
+              },
+              {
+                type: "min",
+                name: '最小值'
+              }
+            ]
+          }
+        }
+      ]
+    }
+
+    myCharts.setOption(config)
+  </script>
+</body>
+</html>
